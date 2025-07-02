@@ -1,0 +1,680 @@
+<!DOCTYPE html><html lang="ru"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nester • nestergames</title>
+  <style>@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");body { margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; font-family: "Orbitron", sans-serif; background-color: rgb(14, 11, 28); background-image: initial; color: rgb(255, 255, 255); transition-property: background, color; transition-duration: 0.3s, 0.3s; }body.light { background-color: rgb(244, 244, 244); background-image: initial; color: rgb(17, 17, 17); }header { background-color: rgb(26, 20, 45); background-image: initial; border-bottom-color: rgb(125, 0, 255); border-bottom-style: solid; border-bottom-width: 2px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; text-align: center; }header h1 { color: rgb(169, 109, 255); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; font-size: 2.5em; }nav { display: flex; justify-content: center; align-items: center; background-color: rgb(28, 21, 48); background-image: initial; border-bottom-color: rgb(52, 32, 92); border-bottom-style: solid; border-bottom-width: 1px; position: relative; }nav a { padding-top: 15px; padding-right: 30px; padding-bottom: 15px; padding-left: 30px; color: rgb(204, 204, 204); text-decoration-line: none; cursor: pointer; }nav a:hover, nav a.active { background-color: rgb(41, 29, 68); background-image: initial; color: rgb(255, 255, 255); }.auth-box { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); }.auth-box button { background-color: rgb(125, 0, 255); background-image: initial; border-top-color: initial; border-top-style: none; border-top-width: initial; border-right-color: initial; border-right-style: none; border-right-width: initial; border-bottom-color: initial; border-bottom-style: none; border-bottom-width: initial; border-left-color: initial; border-left-style: none; border-left-width: initial; color: rgb(255, 255, 255); padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; cursor: pointer; font-family: "Orbitron", sans-serif; }.profile-menu { display: none; position: absolute; right: 20px; top: 60px; background-color: rgb(28, 21, 48); background-image: initial; border-top-color: rgb(52, 32, 92); border-top-style: solid; border-top-width: 1px; border-right-color: rgb(52, 32, 92); border-right-style: solid; border-right-width: 1px; border-bottom-color: rgb(52, 32, 92); border-bottom-style: solid; border-bottom-width: 1px; border-left-color: rgb(52, 32, 92); border-left-style: solid; border-left-width: 1px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; overflow-x: hidden; overflow-y: hidden; z-index: 999; width: 180px; }.profile-menu a, .profile-menu button { display: block; padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px; color: rgb(204, 204, 204); text-decoration-line: none; background-color: initial; background-image: none; border-top-color: initial; border-top-style: none; border-top-width: initial; border-right-color: initial; border-right-style: none; border-right-width: initial; border-bottom-color: initial; border-bottom-style: none; border-bottom-width: initial; border-left-color: initial; border-left-style: none; border-left-width: initial; text-align: left; width: 100%; cursor: pointer; font-family: "Orbitron", sans-serif; }.profile-menu a:hover, .profile-menu button:hover { background-color: rgb(41, 29, 68); background-image: initial; color: rgb(255, 255, 255); }.container { max-width: 1000px; margin-top: 40px; margin-right: auto; margin-bottom: 40px; margin-left: auto; padding-top: 0; padding-right: 20px; padding-bottom: 0; padding-left: 20px; min-height: 70vh; }.panel { background-color: rgb(28, 21, 48); background-image: initial; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; margin-bottom: 30px; border-top-color: rgb(52, 32, 92); border-top-style: solid; border-top-width: 1px; border-right-color: rgb(52, 32, 92); border-right-style: solid; border-right-width: 1px; border-bottom-color: rgb(52, 32, 92); border-bottom-style: solid; border-bottom-width: 1px; border-left-color: rgb(52, 32, 92); border-left-style: solid; border-left-width: 1px; }.form-group { margin-bottom: 15px; }.form-group label { display: block; margin-bottom: 5px; }.form-group input, .form-group select, .form-group textarea { width: 100%; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; background-color: rgb(42, 29, 77); background-image: initial; color: rgb(255, 255, 255); border-top-color: rgb(68, 48, 102); border-top-style: solid; border-top-width: 1px; border-right-color: rgb(68, 48, 102); border-right-style: solid; border-right-width: 1px; border-bottom-color: rgb(68, 48, 102); border-bottom-style: solid; border-bottom-width: 1px; border-left-color: rgb(68, 48, 102); border-left-style: solid; border-left-width: 1px; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; font-family: "Orbitron", sans-serif; font-size: 1em; }textarea {  }button, .btn { background-color: rgb(125, 0, 255); background-image: initial; border-top-color: initial; border-top-style: none; border-top-width: initial; border-right-color: initial; border-right-style: none; border-right-width: initial; border-bottom-color: initial; border-bottom-style: none; border-bottom-width: initial; border-left-color: initial; border-left-style: none; border-left-width: initial; padding-top: 8px; padding-right: 16px; padding-bottom: 8px; padding-left: 16px; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; color: white; cursor: pointer; font-family: "Orbitron", sans-serif; font-size: 1em; }button:disabled { background-color: rgb(90, 0, 122); background-image: initial; }.post { background-color: rgb(41, 29, 68); background-image: initial; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; margin-bottom: 15px; }.post h3 { margin-top: 0; margin-right: 0; margin-bottom: 5px; margin-left: 0; }.post small { display: block; color: rgb(170, 170, 170); font-size: 0.85em; }.post .actions { margin-top: 10px; display: flex; }.post button { background-color: rgb(125, 0, 255); background-image: initial; border-top-color: initial; border-top-style: none; border-top-width: initial; border-right-color: initial; border-right-style: none; border-right-width: initial; border-bottom-color: initial; border-bottom-style: none; border-bottom-width: initial; border-left-color: initial; border-left-style: none; border-left-width: initial; padding-top: 6px; padding-right: 12px; padding-bottom: 6px; padding-left: 12px; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; color: white; cursor: pointer; font-size: 0.9em; }.filter-bar { margin-bottom: 20px; }.filter-bar input { width: 100%; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; border-top-color: rgb(68, 48, 102); border-top-style: solid; border-top-width: 1px; border-right-color: rgb(68, 48, 102); border-right-style: solid; border-right-width: 1px; border-bottom-color: rgb(68, 48, 102); border-bottom-style: solid; border-bottom-width: 1px; border-left-color: rgb(68, 48, 102); border-left-style: solid; border-left-width: 1px; background-color: rgb(42, 29, 77); background-image: initial; color: rgb(255, 255, 255); font-family: "Orbitron", sans-serif; }footer { background-color: rgb(11, 6, 26); background-image: initial; text-align: center; padding-top: 30px; padding-right: 20px; padding-bottom: 30px; padding-left: 20px; color: rgb(125, 89, 211); font-size: 0.9em; border-top-color: rgb(42, 29, 77); border-top-style: solid; border-top-width: 1px; }#avatarContainer { width: 80px; height: 80px; border-top-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; border-bottom-left-radius: 50%; background-color: rgb(125, 0, 255); background-image: initial; color: white; font-size: 40px; font-weight: bold; display: flex; align-items: center; justify-content: center; cursor: pointer; overflow-x: hidden; overflow-y: hidden; margin-bottom: 10px; position: relative; }#avatarContainer img { width: 100%; height: 100%; object-fit: cover; display: none; }#avatarPlus { position: absolute; bottom: 2px; right: 2px; background-color: rgb(255, 255, 255); background-image: initial; color: rgb(125, 0, 255); border-top-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; border-bottom-left-radius: 50%; width: 20px; height: 20px; font-size: 16px; line-height: 20px; text-align: center; font-weight: bold; }.section { display: none; }.section.active { display: block; }.tabs { display: flex; margin-bottom: 20px; flex-wrap: wrap; }.tab { padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px; background-color: rgb(42, 29, 77); background-image: initial; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; cursor: pointer; color: rgb(204, 204, 204); }.tab.active { background-color: rgb(125, 0, 255); background-image: initial; color: rgb(255, 255, 255); }#otherGameInput { margin-top: 10px; display: none; }</style>
+</head>
+<body>
+
+<header>
+  <h1>Nester</h1>
+</header>
+
+<nav>
+  <a href="" id="navHome" class="active" onclick="navigate('home')">Главная</a>
+  <a href="" id="navSearch" onclick="navigate('search')">Поиск тиммейтов</a>
+  <a href="" id="navForum" onclick="navigate('forum')">Форум</a>
+  <a href="" id="navAbout" onclick="navigate('about')">О проекте</a>
+  <div class="auth-box" id="authBox" style="display: block;">
+    <button id="authButton" onclick="toggleLoginForm()">Авторизация</button>
+  </div>
+  <div class="profile-menu" id="profileMenu" style="display: none;">
+    <a href="" onclick="navigate('profile'); hideProfileMenu()">Профиль</a>
+    <a href="" onclick="navigate('friends'); hideProfileMenu()">Друзья</a>
+    <button onclick="toggleTheme(); hideProfileMenu()">Сменить тему</button>
+    <button onclick="logout()">Выйти</button>
+  </div>
+</nav>
+
+<div class="container">
+  <!-- Главная -->
+  <section id="home" class="section active">
+    <div class="panel">
+      <h2>Добро пожаловать в Nester</h2>
+      <p>Сервер для общения и поиска тиммейтов.</p>
+      <p>Здесь вы можете найти друзей, поиграть и хорошо провести время.</p>
+    </div>
+  </section>
+
+  <!-- Поиск тиммейтов -->
+  <section id="search" class="section">
+    <div class="panel">
+      <h2>Поиск тиммейтов</h2>
+      <div class="form-group">
+        <label for="gameSelect">Выберите игру</label>
+        <select id="gameSelect"><option value="Dota 2">Dota 2</option><option value="CS:GO">CS:GO</option><option value="Warframe">Warframe</option><option value="Valorant">Valorant</option><option value="World of Tanks">World of Tanks</option><option value="Minecraft">Minecraft</option><option value="PUBG">PUBG</option><option value="Fortnite">Fortnite</option><option value="Apex Legends">Apex Legends</option><option value="League of Legends">League of Legends</option><option value="GTA V">GTA V</option><option value="Among Us">Among Us</option><option value="Rainbow Six Siege">Rainbow Six Siege</option><option value="Rocket League">Rocket League</option><option value="Overwatch">Overwatch</option><option value="War Thunder">War Thunder</option><option value="Call of Duty">Call of Duty</option><option value="FIFA">FIFA</option><option value="Dead by Daylight">Dead by Daylight</option><option value="Escape from Tarkov">Escape from Tarkov</option><option value="Battlefield">Battlefield</option><option value="ARK: Survival Evolved">ARK: Survival Evolved</option><option value="Minecraft Dungeons">Minecraft Dungeons</option><option value="Sea of Thieves">Sea of Thieves</option><option value="Team Fortress 2">Team Fortress 2</option><option value="Destiny 2">Destiny 2</option><option value="Cyberpunk 2077">Cyberpunk 2077</option><option value="Terraria">Terraria</option><option value="Smite">Smite</option><option value="Paladins">Paladins</option><option value="Fall Guys">Fall Guys</option><option value="Hearthstone">Hearthstone</option><option value="Genshin Impact">Genshin Impact</option><option value="Path of Exile">Path of Exile</option><option value="Among Trees">Among Trees</option><option value="Roblox">Roblox</option><option value="Rust">Rust</option><option value="Brawl Stars">Brawl Stars</option><option value="Другая">Другая</option></select>
+        <input type="text" id="otherGameInput" placeholder="Введите свою игру">
+      </div>
+      <div class="form-group">
+        <label for="roleInput">Кого ищете (роль)</label>
+        <input type="text" id="roleInput" placeholder="Например: ДД, саппорт">
+      </div>
+      <div class="form-group">
+        <label for="aboutInput">О себе (кратко)</label>
+        <textarea id="aboutInput" rows="3" placeholder="Например: играю вечером, люблю команду"></textarea>
+      </div>
+      <button onclick="publishPost()">Опубликовать</button>
+      <hr>
+      <div class="filter-bar">
+        <input type="text" id="searchInput" oninput="filterPosts()" placeholder="Поиск по постам...">
+      </div>
+      <div id="postsList"></div>
+    </div>
+  </section>
+
+  <!-- Форум -->
+  <section id="forum" class="section">
+    <div class="panel">
+      <h2>Форум</h2>
+      <div class="form-group">
+        <input type="text" id="forumTitle" placeholder="Заголовок новости или темы">
+      </div>
+      <div class="form-group">
+        <textarea id="forumContent" rows="4" placeholder="Текст публикации"></textarea>
+      </div>
+      <button onclick="publishForumPost()">Опубликовать</button>
+      <hr>
+      <div class="filter-bar">
+        <input type="text" id="forumSearch" oninput="filterForumPosts()" placeholder="Поиск по форуму...">
+      </div>
+      <div id="forumPostsList"></div>
+    </div>
+  </section>
+
+  <!-- О проекте -->
+  <section id="about" class="section">
+    <div class="panel">
+      <h2>О проекте</h2>
+      <p>Nester - новый уникальный проект для поиска тиммейтов, друзей и общения!</p>
+      <p>Дискорд: <a href="https://discord.gg/ttY7y4NmkW" target="_blank" rel="noopener noreferrer">https://discord.gg/ttY7y4NmkW</a></p>
+    </div>
+  </section>
+
+  <!-- Профиль -->
+  <section id="profile" class="section">
+    <div class="panel">
+      <h2>Профиль</h2>
+      <div id="avatarContainer" onclick="document.getElementById('avatarInput').click()" title="Загрузить аватар">
+        <span id="avatarLetter"></span>
+        <img id="avatarImage" alt="Аватар">
+        <div id="avatarPlus">+</div>
+      </div>
+      <input type="file" id="avatarInput" accept="image/*" style="display: none;" onchange="loadAvatar(event)">
+      <div class="form-group">
+        <label for="profileName">Никнейм</label>
+        <input type="text" id="profileName" disabled="">
+      </div>
+      <div class="form-group">
+        <label for="profileEmail">Email</label>
+        <input type="email" id="profileEmail" disabled="">
+      </div>
+      <div class="form-group">
+        <label>Выберите игры, в которые играете</label>
+        <div id="gamesCheckboxes" style="max-height: 220px; overflow-y: auto; background-color: rgb(42, 29, 77); background-image: initial; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px;"></div>
+      </div>
+      <div class="form-group" id="profileOtherGameWrapper" style="display: none;">
+        <input type="text" id="profileOtherGame" placeholder="Введите другую игру">
+      </div>
+      <div class="form-group">
+        <label for="profile20pts">Расскажите о себе (20 пунктов)</label>
+        <textarea id="profile20pts" rows="6" placeholder="Например: уровень игры, любимые режимы, стиль и т.д."></textarea>
+      </div>
+      <button onclick="saveProfile()">Сохранить профиль</button>
+    </div>
+  </section>
+
+  <!-- Друзья -->
+  <section id="friends" class="section">
+    <div class="panel">
+      <h2>Друзья</h2>
+      <div class="form-group">
+        <input type="text" id="friendAddInput" placeholder="Введите ник друга">
+      </div>
+      <button onclick="addFriend()">Добавить друга</button>
+      <hr>
+      <div id="friendsList" style="max-height: 300px; overflow-y: auto;"></div>
+    </div>
+  </section>
+
+  <!-- Логин форма (модалка) -->
+  <div id="loginForm" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.7); background-image: initial; z-index: 9999; align-items: center; justify-content: center;">
+    <div style="background-color: rgb(28, 21, 48); background-image: initial; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; width: 320px; font-family: &quot;Orbitron&quot;, sans-serif;">
+      <h2 style="color: rgb(226, 198, 255); margin-top: 0;">Авторизация</h2>
+      <div class="form-group">
+        <label for="nickname">Никнейм</label>
+        <input type="text" id="nickname" placeholder="Введите никнейм">
+      </div>
+      <div class="form-group">
+        <label for="email">Email (gmail.com)</label>
+        <input type="email" id="email" placeholder="Введите Gmail">
+      </div>
+      <button onclick="login()">Войти</button>
+      <button style="margin-top: 10px; background-color: rgb(68, 68, 68); background-image: initial;" onclick="toggleLoginForm()">Отмена</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 Nester | nestergames — Все права защищены
+</footer>
+
+<script>
+  // --- Данные ---
+  let currentUser = null;
+  let posts = [];
+  let forumPosts = [];
+  let friends = [];
+
+  const gamesList = [
+    "Dota 2", "CS:GO", "Warframe", "Valorant", "World of Tanks", "Minecraft", "PUBG", "Fortnite", "Apex Legends",
+    "League of Legends", "GTA V", "Among Us", "Rainbow Six Siege", "Rocket League", "Overwatch", "War Thunder",
+    "Call of Duty", "FIFA", "Dead by Daylight", "Escape from Tarkov", "Battlefield", "ARK: Survival Evolved",
+    "Minecraft Dungeons", "Sea of Thieves", "Team Fortress 2", "Destiny 2", "Cyberpunk 2077", "Terraria", "Smite",
+    "Paladins", "Fall Guys", "Hearthstone", "Genshin Impact", "Path of Exile", "Among Trees", "Roblox", "Rust", "Brawl Stars"
+  ];
+
+  // --- Навигация ---
+  function navigate(page){
+    // если неавторизован, запрещаем профайл и друзья
+    if(!currentUser && (page === 'profile' || page === 'friends')){
+      alert('Сначала авторизуйтесь.');
+      toggleLoginForm();
+      return;
+    }
+    ['navHome', 'navSearch', 'navForum', 'navAbout'].forEach(id=>{
+      document.getElementById(id).classList.remove('active');
+    });
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    switch(page){
+      case 'home':
+        document.getElementById('home').classList.add('active');
+        document.getElementById('navHome').classList.add('active');
+        break;
+      case 'search':
+        document.getElementById('search').classList.add('active');
+        document.getElementById('navSearch').classList.add('active');
+        break;
+      case 'forum':
+        document.getElementById('forum').classList.add('active');
+        document.getElementById('navForum').classList.add('active');
+        break;
+      case 'about':
+        document.getElementById('about').classList.add('active');
+        document.getElementById('navAbout').classList.add('active');
+        break;
+      case 'profile':
+        document.getElementById('profile').classList.add('active');
+        break;
+      case 'friends':
+        document.getElementById('friends').classList.add('active');
+        break;
+    }
+    hideProfileMenu();
+  }
+
+  // --- Авторизация ---
+  function toggleLoginForm(){
+    const form = document.getElementById('loginForm');
+    form.style.display = form.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  function login(){
+    const nick = document.getElementById('nickname').value.trim();
+    const email = document.getElementById('email').value.trim().toLowerCase();
+
+    if(!nick || !email) {
+      alert('Пожалуйста, заполните все поля.');
+      return;
+    }
+    if(!email.endsWith('@gmail.com')){
+      alert('Email должен быть gmail.com');
+      return;
+    }
+
+    currentUser = {
+      nickname: nick,
+      email: email,
+      avatar: null,
+      about20: '',
+      games: [],
+      otherGame: '',
+      posts: [],
+      friends: []
+    };
+
+    loadProfileToForm();
+    toggleLoginForm();
+    updateAuthUI();
+    navigate('home');
+  }
+
+  function logout(){
+    if(confirm('Выйти из аккаунта?')){
+      currentUser = null;
+      updateAuthUI();
+      navigate('home');
+      clearProfileForm();
+    }
+  }
+
+  // --- UI авторизации ---
+  function updateAuthUI(){
+    const authBox = document.getElementById('authBox');
+    const profileMenu = document.getElementById('profileMenu');
+    if(currentUser){
+      authBox.style.display = 'none';
+      profileMenu.style.display = 'block';
+      // Заполнить аватар и имя в профиле
+      fillAvatarLetter();
+    } else {
+      authBox.style.display = 'block';
+      profileMenu.style.display = 'none';
+    }
+  }
+
+  function fillAvatarLetter(){
+    const avatarLetter = document.getElementById('avatarLetter');
+    if(currentUser.avatar){
+      document.getElementById('avatarImage').src = currentUser.avatar;
+      document.getElementById('avatarImage').style.display = 'block';
+      avatarLetter.style.display = 'none';
+      document.getElementById('avatarPlus').style.display = 'none';
+    } else {
+      avatarLetter.textContent = currentUser.nickname[0].toUpperCase();
+      avatarLetter.style.display = 'flex';
+      document.getElementById('avatarImage').style.display = 'none';
+      document.getElementById('avatarPlus').style.display = 'block';
+    }
+  }
+
+  // --- Профиль ---
+  function loadProfileToForm(){
+    if(!currentUser) return;
+    document.getElementById('profileName').value = currentUser.nickname;
+    document.getElementById('profileEmail').value = currentUser.email;
+    document.getElementById('profile20pts').value = currentUser.about20 || '';
+    fillAvatarLetter();
+    // Заполнить игры
+    fillGamesCheckboxes();
+    // Восстановить выбранные игры
+    const otherGameWrapper = document.getElementById('profileOtherGameWrapper');
+    const otherGameInput = document.getElementById('profileOtherGame');
+    if(currentUser.games.includes('Другая')){
+      otherGameWrapper.style.display = 'block';
+      otherGameInput.value = currentUser.otherGame || '';
+    } else {
+      otherGameWrapper.style.display = 'none';
+      otherGameInput.value = '';
+    }
+    updateOtherGameInputListener();
+  }
+
+  function clearProfileForm(){
+    document.getElementById('profileName').value = '';
+    document.getElementById('profileEmail').value = '';
+    document.getElementById('profile20pts').value = '';
+    document.getElementById('avatarLetter').textContent = '';
+    document.getElementById('avatarImage').src = '';
+    document.getElementById('avatarImage').style.display = 'none';
+    document.getElementById('profileOtherGameWrapper').style.display = 'none';
+    document.getElementById('profileOtherGame').value = '';
+  }
+
+  function saveProfile(){
+    if(!currentUser) return alert('Сначала авторизуйтесь.');
+    currentUser.about20 = document.getElementById('profile20pts').value.trim();
+    // Сохранить выбранные игры
+    const selectedGames = Array.from(document.querySelectorAll('#gamesCheckboxes input[type=checkbox]:checked')).map(cb => cb.value);
+    currentUser.games = selectedGames;
+    // Сохранить другая игра
+    if(selectedGames.includes('Другая')){
+      currentUser.otherGame = document.getElementById('profileOtherGame').value.trim();
+    } else {
+      currentUser.otherGame = '';
+    }
+    alert('Профиль сохранён.');
+  }
+
+  // --- Аватар ---
+  function loadAvatar(event){
+    const file = event.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e){
+      currentUser.avatar = e.target.result;
+      fillAvatarLetter();
+    }
+    reader.readAsDataURL(file);
+  }
+
+  // --- Игры ---
+  function fillGamesCheckboxes(){
+    const container = document.getElementById('gamesCheckboxes');
+    container.innerHTML = '';
+    gamesList.forEach(game => {
+      const id = 'game-' + game.replace(/\W/g, '');
+      const label = document.createElement('label');
+      label.style.display = 'block';
+      label.style.marginBottom = '6px';
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.value = game;
+      checkbox.id = id;
+      checkbox.style.marginRight = '6px';
+      if(currentUser.games.includes(game)) checkbox.checked = true;
+      checkbox.onchange = onGamesChange;
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(game));
+      container.appendChild(label);
+    });
+    // Добавить "Другая"
+    const idOther = 'game-Other';
+    const labelOther = document.createElement('label');
+    labelOther.style.display = 'block';
+    labelOther.style.marginBottom = '6px';
+    const checkboxOther = document.createElement('input');
+    checkboxOther.type = 'checkbox';
+    checkboxOther.value = 'Другая';
+    checkboxOther.id = idOther;
+    checkboxOther.style.marginRight = '6px';
+    if(currentUser.games.includes('Другая')) checkboxOther.checked = true;
+    checkboxOther.onchange = onGamesChange;
+    labelOther.appendChild(checkboxOther);
+    labelOther.appendChild(document.createTextNode('Другая'));
+    container.appendChild(labelOther);
+
+    updateOtherGameInputListener();
+  }
+  function onGamesChange(){
+    const otherGameWrapper = document.getElementById('profileOtherGameWrapper');
+    const otherCheckbox = document.getElementById('game-Other');
+    if(otherCheckbox.checked){
+      otherGameWrapper.style.display = 'block';
+    } else {
+      otherGameWrapper.style.display = 'none';
+      document.getElementById('profileOtherGame').value = '';
+    }
+  }
+  function updateOtherGameInputListener(){
+    const otherInput = document.getElementById('profileOtherGame');
+    otherInput.oninput = function(){
+      currentUser.otherGame = otherInput.value.trim();
+    }
+  }
+
+  // --- Поиск тиммейтов ---
+  function fillGameSelect(){
+    const select = document.getElementById('gameSelect');
+    select.innerHTML = '';
+    gamesList.forEach(game => {
+      const option = document.createElement('option');
+      option.value = game;
+      option.textContent = game;
+      select.appendChild(option);
+    });
+    const optOther = document.createElement('option');
+    optOther.value = 'Другая';
+    optOther.textContent = 'Другая';
+    select.appendChild(optOther);
+
+    select.onchange = function(){
+      const otherInput = document.getElementById('otherGameInput');
+      if(select.value === 'Другая'){
+        otherInput.style.display = 'block';
+      } else {
+        otherInput.style.display = 'none';
+        otherInput.value = '';
+      }
+    };
+  }
+
+  function publishPost(){
+    if(!currentUser){
+      alert('Сначала авторизуйтесь.');
+      toggleLoginForm();
+      return;
+    }
+    const gameSelect = document.getElementById('gameSelect');
+    let game = gameSelect.value;
+    if(game === 'Другая'){
+      const otherGameInput = document.getElementById('otherGameInput');
+      if(!otherGameInput.value.trim()){
+        alert('Введите свою игру');
+        return;
+      }
+      game = otherGameInput.value.trim();
+    }
+    const role = document.getElementById('roleInput').value.trim();
+    const about = document.getElementById('aboutInput').value.trim();
+
+    if(!role || !about){
+      alert('Пожалуйста, заполните все поля.');
+      return;
+    }
+
+    const post = {
+      id: Date.now(),
+      user: currentUser.nickname,
+      game,
+      role,
+      about,
+      date: new Date(),
+    };
+    posts.unshift(post);
+    alert('Пост опубликован.');
+    document.getElementById('roleInput').value = '';
+    document.getElementById('aboutInput').value = '';
+    if(gameSelect.value === 'Другая') {
+      document.getElementById('otherGameInput').value = '';
+      document.getElementById('otherGameInput').style.display = 'none';
+      gameSelect.value = gamesList[0];
+    }
+    renderPosts();
+  }
+
+  function renderPosts(){
+    const container = document.getElementById('postsList');
+    const filter = document.getElementById('searchInput').value.toLowerCase();
+    container.innerHTML = '';
+    posts.filter(p=>{
+      return p.user.toLowerCase().includes(filter) ||
+             p.game.toLowerCase().includes(filter) ||
+             p.role.toLowerCase().includes(filter) ||
+             p.about.toLowerCase().includes(filter);
+    }).forEach(post=>{
+      const div = document.createElement('div');
+      div.className = 'post';
+      div.innerHTML = `<h3>${post.user} ищет тиммейтов для <b>${post.game}</b></h3>
+        <small>Роль: ${post.role} | ${post.date.toLocaleString()}</small>
+        <p>${post.about}</p>
+        <div class="actions">
+          <button onclick="addFriendFromPost('${post.user}')">Добавить в друзья</button>
+          <button onclick="deletePost(${post.id})" style="background:#aa0044;">Удалить</button>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  function filterPosts(){
+    renderPosts();
+  }
+
+  function deletePost(id){
+    if(!confirm('Удалить этот пост?')) return;
+    posts = posts.filter(p=>p.id!==id);
+    renderPosts();
+  }
+
+  function addFriendFromPost(nick){
+    if(!currentUser){
+      alert('Сначала авторизуйтесь.');
+      toggleLoginForm();
+      return;
+    }
+    if(nick === currentUser.nickname){
+      alert('Нельзя добавить себя в друзья.');
+      return;
+    }
+    if(currentUser.friends.includes(nick)){
+      alert('Этот пользователь уже в друзьях.');
+      return;
+    }
+    currentUser.friends.push(nick);
+    alert(`Пользователь ${nick} добавлен в друзья.`);
+    renderFriends();
+  }
+
+  // --- Форум ---
+  function publishForumPost(){
+    if(!currentUser){
+      alert('Сначала авторизуйтесь.');
+      toggleLoginForm();
+      return;
+    }
+    const title = document.getElementById('forumTitle').value.trim();
+    const content = document.getElementById('forumContent').value.trim();
+    if(!title || !content){
+      alert('Пожалуйста, заполните заголовок и текст.');
+      return;
+    }
+    const post = {
+      id: Date.now(),
+      user: currentUser.nickname,
+      title,
+      content,
+      date: new Date(),
+    };
+    forumPosts.unshift(post);
+    alert('Новость опубликована.');
+    document.getElementById('forumTitle').value = '';
+    document.getElementById('forumContent').value = '';
+    renderForumPosts();
+  }
+
+  function renderForumPosts(){
+    const container = document.getElementById('forumPostsList');
+    const filter = document.getElementById('forumSearch').value.toLowerCase();
+    container.innerHTML = '';
+    forumPosts.filter(p=>{
+      return p.title.toLowerCase().includes(filter) ||
+             p.content.toLowerCase().includes(filter) ||
+             p.user.toLowerCase().includes(filter);
+    }).forEach(post=>{
+      const div = document.createElement('div');
+      div.className = 'post';
+      div.innerHTML = `<h3>${post.title}</h3>
+        <small>Автор: ${post.user} | ${post.date.toLocaleString()}</small>
+        <p>${post.content}</p>
+        <div class="actions">
+          <button onclick="deleteForumPost(${post.id})" style="background:#aa0044;">Удалить</button>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  function filterForumPosts(){
+    renderForumPosts();
+  }
+
+  function deleteForumPost(id){
+    if(!confirm('Удалить эту новость?')) return;
+    forumPosts = forumPosts.filter(p=>p.id!==id);
+    renderForumPosts();
+  }
+
+  // --- Друзья ---
+  function addFriend(){
+    if(!currentUser){
+      alert('Сначала авторизуйтесь.');
+      toggleLoginForm();
+      return;
+    }
+    const nick = document.getElementById('friendAddInput').value.trim();
+    if(!nick){
+      alert('Введите ник друга.');
+      return;
+    }
+    if(nick === currentUser.nickname){
+      alert('Нельзя добавить себя в друзья.');
+      return;
+    }
+    if(currentUser.friends.includes(nick)){
+      alert('Этот пользователь уже в друзьях.');
+      return;
+    }
+    currentUser.friends.push(nick);
+    alert(`Пользователь ${nick} добавлен в друзья.`);
+    document.getElementById('friendAddInput').value = '';
+    renderFriends();
+  }
+
+  function renderFriends(){
+    const container = document.getElementById('friendsList');
+    container.innerHTML = '';
+    if(currentUser.friends.length === 0){
+      container.textContent = 'У вас нет друзей.';
+      return;
+    }
+    currentUser.friends.forEach(nick=>{
+      const div = document.createElement('div');
+      div.style.padding = '8px 12px';
+      div.style.background = '#291d44';
+      div.style.marginBottom = '8px';
+      div.style.borderRadius = '8px';
+      div.textContent = nick;
+      container.appendChild(div);
+    });
+  }
+
+  // --- Профиль меню ---
+  document.getElementById('authButton').addEventListener('click', () => {
+    toggleLoginForm();
+  });
+  document.getElementById('avatarContainer').addEventListener('click', () => {
+    if(currentUser) document.getElementById('avatarInput').click();
+  });
+  document.body.addEventListener('click', e => {
+    if(!e.target.closest('.profile-menu') && !e.target.closest('.auth-box')){
+      hideProfileMenu();
+    }
+  });
+  document.querySelector('.auth-box').addEventListener('click', e => {
+    if(currentUser) {
+      e.preventDefault();
+      toggleProfileMenu();
+    }
+  });
+  function toggleProfileMenu(){
+    const menu = document.getElementById('profileMenu');
+    if(menu.style.display === 'block') menu.style.display = 'none';
+    else menu.style.display = 'block';
+  }
+  function hideProfileMenu(){
+    const menu = document.getElementById('profileMenu');
+    menu.style.display = 'none';
+  }
+
+  // --- Тема ---
+  function toggleTheme(){
+    document.body.classList.toggle('light');
+  }
+
+  // --- Инициализация ---
+  fillGameSelect();
+  updateAuthUI();
+  renderPosts();
+  renderForumPosts();
+
+  // Чтобы при переключении вкладок рендерился профиль и друзья при открытии
+  document.getElementById('navHome').onclick = () => {navigate('home'); return false;};
+  document.getElementById('navSearch').onclick = () => {navigate('search'); return false;};
+  document.getElementById('navForum').onclick = () => {navigate('forum'); return false;};
+  document.getElementById('navAbout').onclick = () => {navigate('about'); return false;};
+
+</script>
+
+
+
+</body></html>
