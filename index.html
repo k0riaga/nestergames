@@ -1,0 +1,231 @@
+<!-- Файл index.html: полноценный сайт Nester в одном файле -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nester • nestergames</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #0f0f1a;
+      color: #fff;
+    }
+    header {
+      background: #1a142d;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #7d00ff;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #a96dff;
+    }
+    nav {
+      background: #1c1530;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      border-bottom: 1px solid #34205c;
+    }
+    nav .links a {
+      color: #ccc;
+      text-decoration: none;
+      margin-right: 20px;
+      padding: 10px;
+    }
+    nav .links a:hover, nav .links a.active {
+      background: #291d44;
+      color: #fff;
+      border-radius: 6px;
+    }
+    nav .auth {
+      margin-left: auto;
+    }
+    nav .auth button {
+      background: #7d00ff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    .panel {
+      background: #1f1b2e;
+      border: 1px solid #3a2f57;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 10px;
+      background: #2a1d4d;
+      color: white;
+      border: 1px solid #443066;
+      border-radius: 6px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0b061a;
+      color: #7d59d3;
+      border-top: 1px solid #2a1d4d;
+    }
+    .btn {
+      background: #7d00ff;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Nester</h1>
+</header>
+
+<nav>
+  <div class="links">
+    <a href="#" class="nav-link active" data-page="home">Главная</a>
+    <a href="#" class="nav-link" data-page="team">Поиск тиммейтов</a>
+    <a href="#" class="nav-link" data-page="forum">Форум</a>
+    <a href="#" class="nav-link" data-page="about">О проекте</a>
+    <a href="#" class="nav-link hidden" id="profileLink" data-page="profile">Профиль</a>
+  </div>
+  <div class="auth">
+    <button id="authBtn">Авторизация</button>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- Главная -->
+  <div class="panel page" id="page-home">
+    <h2>Добро пожаловать в Nester</h2>
+    <p>Сервер для общения и поиска тиммейтов.</p>
+    <p>Здесь вы можете найти друзей, поиграть и хорошо провести время.</p>
+  </div>
+
+  <!-- Поиск тиммейтов -->
+  <div class="panel page hidden" id="page-team">
+    <h2>Поиск тиммейтов</h2>
+    <div class="form-group">
+      <label>Игра</label>
+      <input type="text" placeholder="Введите название игры...">
+    </div>
+    <div class="form-group">
+      <label>Платформа</label>
+      <select>
+        <option>PC</option>
+        <option>PlayStation</option>
+        <option>Xbox</option>
+        <option>Mobile</option>
+      </select>
+    </div>
+    <button class="btn">Поиск</button>
+  </div>
+
+  <!-- Форум -->
+  <div class="panel page hidden" id="page-forum">
+    <h2>Форум</h2>
+    <div class="form-group">
+      <label>Создать тему</label>
+      <input type="text" placeholder="Заголовок темы">
+      <textarea rows="4" placeholder="Ваше сообщение..."></textarea>
+      <button class="btn">Опубликовать</button>
+    </div>
+  </div>
+
+  <!-- О проекте -->
+  <div class="panel page hidden" id="page-about">
+    <h2>О проекте</h2>
+    <p>Nester — новый уникальный проект для поиска тиммейтов, друзей и общения!</p>
+    <p>Дискорд: <a href="https://discord.gg/ttY7y4NmkW" target="_blank">https://discord.gg/ttY7y4NmkW</a></p>
+  </div>
+
+  <!-- Профиль -->
+  <div class="panel page hidden" id="page-profile">
+    <h2>Профиль</h2>
+    <div class="form-group">
+      <label>Никнейм</label>
+      <input type="text" placeholder="Введите ник">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="example@mail.com">
+    </div>
+    <div class="form-group">
+      <label>О себе</label>
+      <textarea rows="4" placeholder="Расскажите о себе..."></textarea>
+    </div>
+    <button class="btn">Сохранить</button>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 Nester | nestergames — Все права защищены
+</footer>
+
+<script>
+  const pages = document.querySelectorAll('.page');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const authBtn = document.getElementById('authBtn');
+  const profileLink = document.getElementById('profileLink');
+
+  let isLoggedIn = false;
+
+  function showPage(id) {
+    pages.forEach(p => p.classList.add('hidden'));
+    document.getElementById(`page-${id}`).classList.remove('hidden');
+    navLinks.forEach(l => l.classList.remove('active'));
+    document.querySelector(`[data-page="${id}"]`).classList.add('active');
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const page = link.getAttribute('data-page');
+      if (page === 'profile' && !isLoggedIn) return;
+      showPage(page);
+    });
+  });
+
+  authBtn.addEventListener('click', () => {
+    isLoggedIn = !isLoggedIn;
+    if (isLoggedIn) {
+      authBtn.textContent = 'Выйти';
+      profileLink.classList.remove('hidden');
+    } else {
+      authBtn.textContent = 'Авторизация';
+      profileLink.classList.add('hidden');
+      showPage('home');
+    }
+  });
+
+  showPage('home');
+</script>
+
+</body>
+</html>
